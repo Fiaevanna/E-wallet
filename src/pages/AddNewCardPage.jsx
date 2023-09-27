@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Forms from "../components/Forms";
 import { Link } from "react-router-dom";
 
@@ -16,9 +15,16 @@ const AddNewCardPage = () => {
           justifyContent: "space-between",
         }}
       >
-        
         <Link to={"/cards"}>
-          <button style={{  width: "320px", marginTop: "30px",backgroundColor: "darkRed" }}>Go back</button>
+          <button
+            style={{
+              width: "320px",
+              marginTop: "30px",
+              backgroundColor: "darkRed",
+            }}
+          >
+            Go back
+          </button>
         </Link>
       </div>
     </>

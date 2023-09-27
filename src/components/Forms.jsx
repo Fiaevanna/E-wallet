@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DisplayOneCard from "./DisplayOneCard";
 import { useNavigate } from "react-router-dom";
+
 const Forms = () => {
   const [formCardInputs, setFormCardInputs] = useState({
     vendor: "",
@@ -10,8 +11,12 @@ const Forms = () => {
     expireyear: "",
     cvv: "",
   });
+  const [error, setError] = useState("");
+
+  /* denna funktionen stoppar state om man skriver mer en vad som är requierd för dens fält annars så sparar den värdet i state */
 
   const handleOnChange = (event, inputKey) => {
+    setError("");
     if (inputKey === "cardholder" && event.target.value.length > 49) {
       return;
     }
@@ -40,12 +45,15 @@ const Forms = () => {
   const navigate = useNavigate();
   const save = () => {
     if (formCardInputs.vendor === "") {
+      setError("Plz select a vendor");
       return;
     }
     if (formCardInputs.cardholder.length > 49) {
+      setError("your name is to long, plz change it!");
       return;
     }
     if (formCardInputs.cardnumber.length !== 16) {
+      setError("we need 16 numbers plz for your cardnumber");
       return;
     }
 
@@ -53,6 +61,7 @@ const Forms = () => {
       formCardInputs.expiremonth.length > 2 ||
       formCardInputs.expiremonth.length === 0
     ) {
+      setError("expire month requires 1 or 2 numbers");
       return;
     }
 
@@ -60,15 +69,21 @@ const Forms = () => {
       formCardInputs.expireyear.length > 2 ||
       formCardInputs.expireyear.length === 0
     ) {
+      setError("expire year requires 1 or 2 numbers");
       return;
     }
 
     if (formCardInputs.cvv.length !== 3) {
+      setError("three cvv-numbers are requierd");
       return;
     }
 
     const allCards = localStorage.getItem("allCards");
     const allCardsParsed = JSON.parse(allCards);
+    if (allCardsParsed.lenght >= 4) {
+      setError("you can only have 4 active cards :( ");
+      return;
+    }
 
     allCardsParsed.push(formCardInputs);
     localStorage.setItem("allCards", JSON.stringify(allCardsParsed));
@@ -184,7 +199,16 @@ const Forms = () => {
         </label>
       </form>
 
-      <button onClick={save} style={{ width: "320px", marginTop: "30px",  backgroundColor: "darkGreen" }}>
+      <p style={{ color: "darkred" }}>{error}</p>
+
+      <button
+        onClick={save}
+        style={{
+          width: "320px",
+          marginTop: "30px",
+          backgroundColor: "darkGreen",
+        }}
+      >
         Save
       </button>
     </>
