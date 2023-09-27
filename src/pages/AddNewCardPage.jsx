@@ -11,14 +11,14 @@ const AddNewCardPage = () => {
         style={{
           margin: "30px auto",
           display: "flex",
-          width: "300px",
+          width: "320px",
           marginTop: "30px",
           justifyContent: "space-between",
         }}
       >
         
         <Link to={"/cards"}>
-          <button style={{ backgroundColor: "darkRed" }}>Go back</button>
+          <button style={{  width: "320px", marginTop: "30px",backgroundColor: "darkRed" }}>Go back</button>
         </Link>
       </div>
     </>

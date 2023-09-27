@@ -184,7 +184,7 @@ const Forms = () => {
         </label>
       </form>
 
-      <button onClick={save} style={{ backgroundColor: "darkGreen" }}>
+      <button onClick={save} style={{ width: "320px", marginTop: "30px",  backgroundColor: "darkGreen" }}>
         Save
       </button>
     </>
