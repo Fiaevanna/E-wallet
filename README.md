@@ -3,7 +3,7 @@
 I created a E-wallet with React, to run my script you need to install:
 * npm create vite@latest
 * npm i
-  To run script use:
+  * To run script use:
   * npm run dev
  
     
