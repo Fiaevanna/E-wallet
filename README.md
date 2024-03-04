@@ -1,4 +1,12 @@
-# React + Vite
+# React + Vite 
+
+I created a E-wallet with React, to run my script you need to install:
+* npm create vite@latest
+* npm i
+  To run script use:
+  * npm run dev
+ 
+    
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
