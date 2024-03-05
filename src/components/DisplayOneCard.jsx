@@ -15,7 +15,7 @@ const DisplayOneCard = ({
       <div
         style={{
           width: "500px",
-          minHeight: "250px",
+          minHeight: "285px",
           backgroundColor: "#1b6236",
           border: "2px solid #7cf343",
           color: "black",
